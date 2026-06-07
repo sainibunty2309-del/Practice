@@ -135,3 +135,19 @@ select distinct author_id as id
      where author_id = viewer_id 
      order by author_id asc
 """
+
+# 620. Not Boring Movies
+# Link: https://leetcode.com/problems/not-boring-movies/description/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to report the movies with an odd-numbered ID and a description that is not "boring".
+
+Return the result table ordered by rating in descending order.
+"""
+
+# solution:
+"""
+select * from cinema
+     where description <>"boring"  and id%2=1
+     order by rating desc;
+"""
