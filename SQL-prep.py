@@ -152,7 +152,7 @@ select * from cinema
      order by rating desc;
 """
 
-# 1250. Average Selling Price
+# 1251. Average Selling Price
 # Link: https://leetcode.com/problems/average-selling-price/description/?envType=study-plan-v2&envId=top-sql-50
 
 """
