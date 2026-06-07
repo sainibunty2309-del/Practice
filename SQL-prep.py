@@ -116,3 +116,22 @@ Write a solution to find the name, population, and area of the big countries.
      FROM World
      WHERE area >= 3000000
       OR population >= 25000000;"""
+
+
+# 1148. Articles views I
+# Link: https://leetcode.com/problems/article-views-i/description/?envType=study-plan-v2&envId=top-sql-50
+
+""" 
+Write a solution to find all the authors that viewed at least one of their own articles.
+
+Return the result table sorted by id in ascending order.
+"""
+
+# solution:
+
+"""
+select distinct author_id as id
+     from views
+     where author_id = viewer_id 
+     order by author_id asc
+"""
