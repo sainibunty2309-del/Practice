@@ -151,3 +151,24 @@ select * from cinema
      where description <>"boring"  and id%2=1
      order by rating desc;
 """
+
+# 1250. Average Selling Price
+# Link: https://leetcode.com/problems/average-selling-price/description/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to find the average selling price for each product. average_price should be rounded to 2 decimal places.
+ If a product does not have any sold units, its average selling price is assumed to be 0.
+
+"""
+
+# Solution:
+
+"""
+select p.product_id, round(ifnull(sum(units*price)/sum(units),0),2) average_price
+     from prices p
+     left join unitssold us
+     on p.product_id = us.product_id
+     and purchase_date between start_date and end_date
+     group by p.product_id
+
+"""
