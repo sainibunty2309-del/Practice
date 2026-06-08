@@ -186,3 +186,19 @@ characters used in the content of the tweet is strictly greater than 15.
 select tweet_id from tweets
      where length(content)>15;
 """
+
+# 1378. Replace Employee ID With the Unique Identifier
+# Link: https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/description/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to show the unique ID of each user, 
+If a user does not have a unique ID replace just show null.
+"""
+
+# Solution:
+
+"""
+select eu.unique_id, e.name from Employees e
+left join EmployeeUNI eu
+on e.id = eu.id
+"""
