@@ -172,3 +172,17 @@ select p.product_id, round(ifnull(sum(units*price)/sum(units),0),2) average_pric
      group by p.product_id
 
 """
+
+#1683. Invalid Tweets:
+# Link: https://leetcode.com/problems/invalid-tweets/description/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of 
+characters used in the content of the tweet is strictly greater than 15.
+"""
+
+# Solution:
+"""
+select tweet_id from tweets
+     where length(content)>15;
+"""
