@@ -202,3 +202,19 @@ select eu.unique_id, e.name from Employees e
 left join EmployeeUNI eu
 on e.id = eu.id
 """
+
+# 1068. Product Sales Analysis I
+# Link -> https://leetcode.com/problems/product-sales-analysis-i/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to report the product_name, year, 
+and price for each sale_id in the Sales table.
+"""
+
+# Solution:
+
+"""
+select p.product_name, s.year, s.price from sales s
+join product p
+on s.product_id=p.product_id;
+"""
