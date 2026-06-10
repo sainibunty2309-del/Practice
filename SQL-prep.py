@@ -218,3 +218,23 @@ select p.product_name, s.year, s.price from sales s
 join product p
 on s.product_id=p.product_id;
 """
+
+# 1581. Customer Who Visited But Did Not Make Any Transactions
+# Link -> https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/description/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write a solution to find the IDs of the users who visited without making
+ any transactions and the number of times they made these types of visits.
+
+'''
+
+# Solution:
+
+'''
+select v.customer_id, count(*) as count_no_trans from Visits v
+left join Transactions t
+on v.visit_id = t.visit_id
+where t.transaction_id  is null
+group by v.customer_id 
+
+'''
