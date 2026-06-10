@@ -238,3 +238,20 @@ where t.transaction_id  is null
 group by v.customer_id 
 
 '''
+
+# 197. Rising Temperature
+# Link-> https://leetcode.com/problems/rising-temperature/description/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write a solution to find all dates' id with higher temperatures
+ compared to its previous dates (yesterday).
+'''
+
+# Sloution:
+
+'''
+select w1.id from weather w1, weather w2
+where datediff(w1.recordDate, w2.recordDate)= 1
+and w1.temperature > w2.temperature;
+
+'''
