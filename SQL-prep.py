@@ -319,3 +319,21 @@ on s.student_id=e.student_id and sub.subject_name=e.subject_name
 group by s.student_id, s.student_name,sub.subject_name
 order by s.student_id,sub.subject_name
 """
+
+# 570. Managers With Atleast 5 Direct Reports
+# Link -> https://leetcode.com/problems/managers-with-at-least-5-direct-reports/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to find managers with at least five direct reports.
+"""
+
+# Solution:
+
+"""
+select e1.name
+from employee e1
+join employee e2
+on e1.id=e2.managerid
+group by e1.id,e1. name
+having count(e2.managerid)>=5 
+"""
