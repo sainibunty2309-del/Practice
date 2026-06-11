@@ -299,3 +299,23 @@ left join bonus b
 on e.empid=b.empid
 where bonus<1000 or bonus is null
 '''
+
+# 1280. Students And Examinations
+# Link -> https://leetcode.com/problems/students-and-examinations/description/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write a solution to find the 
+number of times each student attended each exam
+'''
+
+# solution:
+
+"""
+select s.student_id, s.student_name,sub.subject_name,count(e.subject_name) AS attended_exams
+from students s
+cross join subjects sub 
+left join examinations e
+on s.student_id=e.student_id and sub.subject_name=e.subject_name
+group by s.student_id, s.student_name,sub.subject_name
+order by s.student_id,sub.subject_name
+"""
