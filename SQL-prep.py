@@ -279,3 +279,23 @@ on a.machine_id = b. machine_id and a.process_id = b.process_id
 where a.activity_type = 'start' and b.activity_type = 'end'
 group by a.machine_id;
 '''
+
+# 577. Employee Bonus
+# Link -> https://leetcode.com/problems/employee-bonus/description/?envType=study-plan-v2&envId=top-sql-50
+
+"""
+Write a solution to report the name and bonus amount of each employee who satisfies either of the following:
+
+- The employee has a bonus less than 1000.
+- The employee did not get any bonus.
+"""
+
+# Solution:
+
+'''
+select e.name,b.bonus
+ from employee e
+left join bonus b
+on e.empid=b.empid
+where bonus<1000 or bonus is null
+'''
