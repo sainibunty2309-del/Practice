@@ -355,3 +355,19 @@ JOIN Employee e
 ON e.employee_id = p.employee_id
 GROUP BY p.project_id;
 '''
+
+# 181. Employees Earning More than theri Managers
+# Link -> https://leetcode.com/problems/employees-earning-more-than-their-managers/description/?envType=problem-list-v2&envId=db-db1-sql-i
+
+'''
+Write a solution to find the employees
+ who earn more than their managers.
+'''
+
+# Solution:
+
+'''
+select e1.name as Employee from Employee e1
+join Employee e2 on e1.managerId = e2.id
+where e1.salary > e2.salary
+'''
