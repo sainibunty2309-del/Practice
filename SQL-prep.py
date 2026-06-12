@@ -337,3 +337,21 @@ on e1.id=e2.managerid
 group by e1.id,e1. name
 having count(e2.managerid)>=5 
 """
+
+# 1075. Projeect Employees I
+# Link -> https://leetcode.com/problems/project-employees-i/description/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write an SQL query that reports the average experience
+ years of all the employees for each project, rounded to 2 digits.
+'''
+
+# Solution:
+
+'''
+select p.project_id, round(avg(e.experience_years),2) as average_years 
+FROM Project p
+JOIN Employee e
+ON e.employee_id = p.employee_id
+GROUP BY p.project_id;
+'''
