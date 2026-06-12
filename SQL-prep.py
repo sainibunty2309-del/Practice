@@ -371,3 +371,19 @@ select e1.name as Employee from Employee e1
 join Employee e2 on e1.managerId = e2.id
 where e1.salary > e2.salary
 '''
+
+# Customer Placing the Largest number of Orders
+# Link -> https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/description/?envType=problem-list-v2&envId=db-db2-filtering-aggregation
+
+"""
+Write a solution to find the customer_number for the customer 
+who has placed the largest number of orders.
+"""
+
+# Solution:
+
+'''
+select customer_number from Orders
+group by customer_number
+order by count(*) desc limit 1;
+'''
