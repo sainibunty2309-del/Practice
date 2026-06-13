@@ -387,3 +387,19 @@ select customer_number from Orders
 group by customer_number
 order by count(*) desc limit 1;
 '''
+
+# Classes with atleast 5 Students
+# Link -> https://leetcode.com/problems/classes-with-at-least-5-students/submissions/2031898683/?envType=problem-list-v2&envId=db-db2-filtering-aggregation
+
+'''
+Write a solution to find all the classes 
+that have at least five students.
+'''
+
+# Solution :
+
+'''
+select class from Courses
+group by class
+having count(student)>= 5
+'''
