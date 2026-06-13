@@ -1,4 +1,4 @@
-# SQL
+# SQL Practice Questions
 
 ###  Question_id: 1757: Recyclable and low fats products
 ####  link ->   https://leetcode.com/problems/recyclable-and-low-fat-products/description/?envType=study-plan-v2&envId=top-sql-50
@@ -479,3 +479,4 @@ on c.product_key = p.product_key
 group by customer_id 
  count(distinct c.product_key) = (select count(*) from Product)
 '''
+# 
