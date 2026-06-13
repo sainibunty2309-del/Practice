@@ -441,3 +441,23 @@ from Activity
 where activity_date between '2019-06-28' and '2019-07-27'
 group by activity_date;
 '''
+
+# Students and Examinations
+# Link -> https://leetcode.com/problems/students-and-examinations/description/?envType=problem-list-v2&envId=db-db3-grouping-aggregation
+
+'''
+Write a solution to find the number of times each student 
+attended each exam.
+'''
+
+# Solution:
+
+'''
+select s.student_id, s.student_name,sub.subject_name,count(e.subject_name) AS attended_exams
+from students s
+cross join subjects sub 
+left join examinations e
+on s.student_id=e.student_id and sub.subject_name=e.subject_name
+group by s.student_id, s.student_name,sub.subject_name
+order by s.student_id,sub.subject_name
+'''
