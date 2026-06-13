@@ -461,3 +461,21 @@ on s.student_id=e.student_id and sub.subject_name=e.subject_name
 group by s.student_id, s.student_name,sub.subject_name
 order by s.student_id,sub.subject_name
 '''
+
+# Customers Who Bought ALl Products
+# Link -> https://leetcode.com/problems/customers-who-bought-all-products/description/?envType=problem-list-v2&envId=db-db3-grouping-aggregation
+'''
+Write a solution to report the customer ids from the Customer table 
+that bought all the products in the Product table.
+
+'''
+
+# Solution:
+
+'''
+select c.customer_id as customer_id
+from Customer c inner join Product p
+on c.product_key = p.product_key
+group by customer_id 
+ count(distinct c.product_key) = (select count(*) from Product)
+'''
