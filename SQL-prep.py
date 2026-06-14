@@ -535,3 +535,28 @@ WHERE c.banned = 'No'
   AND request_at BETWEEN '2013-10-01' AND '2013-10-03'
 GROUP BY request_at;
 '''
+
+# 178. Rank Scores
+# Link -> https://leetcode.com/problems/rank-scores/description/?envType=problem-list-v2&envId=db-db4-window-functions-ranking
+
+'''
+Write a solution to find the rank of the scores. The ranking should be 
+calculated according to the following rules:
+
+- The scores should be ranked from the highest to the lowest.
+- If there is a tie between two scores, both should have the same ranking.
+
+After a tie, the next ranking number should be the next consecutive 
+integer value. In other words, there should be no holes between ranks.
+'''
+
+# Solution:
+
+'''
+SELECT s1.score,(SELECT COUNT(DISTINCT s2.score)
+        FROM Scores s2
+        WHERE s2.score >= s1.score
+    ) AS `rank`
+FROM Scores s1
+ORDER BY s1.score DESC;
+'''
