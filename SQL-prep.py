@@ -503,3 +503,35 @@ FROM Tree
 ORDER BY id;
 
 '''
+
+# Trips and Users
+#Link ->
+
+'''
+Write a solution to find the cancellation rate of requests with unbanned 
+users (both client and driver must not be banned) each day 
+between "2013-10-01" and "2013-10-03" with at least one trip.
+Round Cancellation Rate to two decimal points.
+'''
+# Solution:
+ 
+'''
+SELECT
+    request_at AS Day,
+    ROUND(
+        AVG(CASE
+                WHEN status != 'completed' THEN 1
+                ELSE 0
+            END),
+        2
+    ) AS 'Cancellation Rate'
+FROM Trips t
+JOIN Users c
+    ON t.client_id = c.users_id
+JOIN Users d
+    ON t.driver_id = d.users_id
+WHERE c.banned = 'No'
+  AND d.banned = 'No'
+  AND request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY request_at;
+'''
