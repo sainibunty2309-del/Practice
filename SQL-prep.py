@@ -560,3 +560,27 @@ SELECT s1.score,(SELECT COUNT(DISTINCT s2.score)
 FROM Scores s1
 ORDER BY s1.score DESC;
 '''
+
+# Consecutive Numbers
+# Link -> https://leetcode.com/problems/consecutive-numbers/?envType=problem-list-v2&envId=db-db4-window-functions-ranking
+
+'''
+Find all numbers that appear at least three times consecutively.
+
+Return the result table in any order.
+'''
+
+# Solution:
+
+'''
+SELECT DISTINCT num AS ConsecutiveNums
+FROM (
+    SELECT
+        num,
+        LAG(num, 1) OVER (ORDER BY id) AS prev1,
+        LAG(num, 2) OVER (ORDER BY id) AS prev2
+    FROM Logs
+) t
+WHERE num = prev1
+  AND num = prev2;
+'''
