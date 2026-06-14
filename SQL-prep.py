@@ -479,4 +479,27 @@ on c.product_key = p.product_key
 group by customer_id 
  count(distinct c.product_key) = (select count(*) from Product)
 '''
-# 
+# Tree Node
+# Link -> https://leetcode.com/problems/tree-node/description/?envType=problem-list-v2&envId=db-db3-grouping-aggregation
+
+'''
+Write a solution to report the type of each node in the tree.
+
+Return the result table in any order
+'''
+# Solution:
+
+'''
+SELECT
+    id,
+    CASE
+        WHEN p_id IS NULL THEN 'Root'
+        WHEN id IN (SELECT DISTINCT p_id
+                    FROM Tree
+                    WHERE p_id IS NOT NULL) THEN 'Inner'
+        ELSE 'Leaf'
+    END AS type
+FROM Tree
+ORDER BY id;
+
+'''
