@@ -597,7 +597,8 @@ Write a solution to report the sum of all total investment values in
 (i.e., the (lat, lon) attribute pairs must be unique).
 Round tiv_2016 to two decimal places.
 '''
-# 
+# Solution:
+
 '''SELECT
     ROUND(SUM(tiv_2016), 2) AS tiv_2016
 FROM Insurance
