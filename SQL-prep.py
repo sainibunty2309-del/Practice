@@ -615,3 +615,21 @@ WHERE tiv_2015 IN (
         HAVING COUNT(*) = 1
       );
 '''
+
+# 184 Department Highiest Salary
+# Link -> https://leetcode.com/problems/department-highest-salary/?envType=problem-list-v2&envId=db-db5-sql-ii
+
+'''
+Write a solution to find employees
+who have the highest salary in each of the departments.
+'''
+
+# Solution :
+
+'''
+select d.name as Department, e.name as Employee, e.salary as Salary from Employee e
+join Department d
+on e.departmentID = d.id
+where (e.departmentID, e.salary) in (select departmentID, max(salary) from Employee
+group by departmentID);  
+'''
