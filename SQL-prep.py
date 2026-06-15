@@ -634,7 +634,7 @@ where (e.departmentID, e.salary) in (select departmentID, max(salary) from Emplo
 group by departmentID);  
 '''
 
-# 1068. Product Sales Analysis III
+# 1070. Product Sales Analysis III
 # Link -> http://leetcode.com/problems/product-sales-analysis-iii/?envType=problem-list-v2&envId=db-db5-sql-ii
 
 '''
@@ -653,4 +653,27 @@ select product_id, year as First_year, quantity, price
 from Sales
 where (product_id, year) in (select product_id, min(year)from Sales 
 group by product_id)
+'''
+
+# 601. Human Traffic To Stadium
+# Link -> https://leetcode.com/problems/human-traffic-of-stadium/description/?envType=problem-list-v2&envId=db-db5-sql-ii
+
+'''
+Write a solution to display the records with three or more rows 
+consecutive id's, and the number of people is greater than or equal 
+to 100 for eac
+'''
+
+# Solution :
+
+'''
+with cte as (select * , id - ROW_NUMBER() OVER (ORDER BY id) as grp
+from Stadium
+where people >= 100)
+select id,visit_date, people from cte
+where grp in (
+    select grp from cte
+    group by grp
+    having count(*) >= 3
+)order by visit_date;
 '''
