@@ -80,3 +80,24 @@ class Solution(object):
     def getConcatenation(self, nums):
         return nums + nums
 '''
+# Shuffle the Array
+# Link -> https://leetcode.com/problems/shuffle-the-array/description/?envType=problem-list-v2&envId=dsa-linear-shoal-array-i
+
+'''
+Given the array nums consisting of 2n elements
+ in the form [x1,x2,...,xn,y1,y2,...,yn].
+'''
+
+# Solution :
+
+'''
+class Solution(object):
+    def shuffle(self, nums, n):
+        ans = []
+
+        for i in range(n):
+            ans.append(nums[i])
+            ans.append(nums[i+n])
+
+        return ans
+'''
