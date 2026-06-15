@@ -633,3 +633,24 @@ on e.departmentID = d.id
 where (e.departmentID, e.salary) in (select departmentID, max(salary) from Employee
 group by departmentID);  
 '''
+
+# 1068. Product Sales Analysis III
+# Link -> http://leetcode.com/problems/product-sales-analysis-iii/?envType=problem-list-v2&envId=db-db5-sql-ii
+
+'''
+Write a solution to find all sales that occurred in the first year each 
+product was sold.
+
+- For each product_id, identify the earliest year it appears in the Sales
+table.
+
+- Return all sales entries for that product in that year.
+'''
+# Solution :
+
+'''
+select product_id, year as First_year, quantity, price
+from Sales
+where (product_id, year) in (select product_id, min(year)from Sales 
+group by product_id)
+'''
