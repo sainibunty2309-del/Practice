@@ -256,3 +256,42 @@ class Solution(object):
                 ans.append("Pop")
         return ans
 '''
+
+# 636. Exclusive time of functions
+#Link ->https://leetcode.com/problems/exclusive-time-of-functions/?envType=problem-list-v2&envId=dsa-linear-shoal-stack
+
+'''
+A function's exclusive time is the sum of execution times for all 
+function calls in the program. For example, if a function is called 
+twice, one call executing for 2 time units and another call executing 
+for 1 time unit, the exclusive time is 2 + 1 = 3.
+
+'''
+
+# Solution :
+
+'''
+class Solution(object):
+    def exclusiveTime(self, n, logs):
+        ans = [0]* n
+        stack = []
+        prev_time = 0
+
+        for log in logs:
+            parts = log.split(":")
+            func_id = int(parts[0])
+            action = parts[1]
+            time = int(parts[2])
+
+            if action == "start":
+                if stack:
+                    ans[stack[-1]] += time-prev_time
+                stack.append(func_id)
+                prev_time = time
+            
+            else:
+                ans[stack.pop()] += time-prev_time +1
+                prev_time = time +1
+        return ans
+        
+'''
