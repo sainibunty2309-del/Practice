@@ -126,3 +126,33 @@ class Solution(object):
              count = 0
       return max_count
 '''
+
+# 645. Set Mismatch
+# Link -> https://leetcode.com/problems/set-mismatch/submissions/2035098386/?envType=problem-list-v2&envId=dsa-linear-shoal-array-ii
+
+'''
+Find the number that occurs twice and the number that is 
+missing and return them in the form of an array.
+'''
+
+# Solution :
+
+'''
+class Solution(object):
+    def findErrorNums(self, nums):
+      seen = set()
+      duplicate = -1
+
+      for num in nums:
+        if num in seen:
+            duplicate = num
+        seen.add(num)
+      missing = -1
+      n = len(nums)
+      for i in range(1,n+1):
+        if i not in seen:
+            missing = i
+            break
+      
+      return [duplicate, missing]
+'''
