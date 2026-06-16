@@ -156,3 +156,29 @@ class Solution(object):
       
       return [duplicate, missing]
 '''
+
+# 1365. How many numbers are smaller than the current number
+# Link -> https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/?envType=problem-list-v2&envId=dsa-linear-shoal-array-ii
+
+'''
+Given the array nums, for each nums[i] find out how many numbers in the
+array are smaller than it. That is, for each nums[i] you have to count 
+the number of valid j's such that j != i and nums[j] < nums[i].
+
+'''
+
+# Solution:
+
+'''
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        ans = []
+
+        for i in range(len(nums)):
+            count = 0
+            for j in range(len(nums)):
+                if nums[j]<nums[i]:
+                    count +=1
+            ans.append(count)
+        return ans
+'''
