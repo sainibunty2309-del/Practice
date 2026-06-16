@@ -182,3 +182,25 @@ class Solution(object):
             ans.append(count)
         return ans
 '''
+
+# 448. Find all numbers disappeared in an array
+# Link -> https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/submissions/2035117601/?envType=problem-list-v2&envId=dsa-linear-shoal-array-ii
+
+'''
+Given an array nums of n integers where nums[i] is in the range
+ [1, n], return an array of all the integers in the 
+ [1, n] that do not appear in nums.
+'''
+# Solution:
+
+'''
+class Solution(object):
+    def findDisappearedNumbers(self, nums):
+        s = set(nums)
+        ans = []
+
+        for i in range(1, len(nums)+1):
+            if i not in s:
+                ans.append(i)
+        return ans
+'''
