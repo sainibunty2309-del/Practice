@@ -360,3 +360,32 @@ class Solution(object):
 
         return ans       
 '''
+
+# 3. longest substring without repeated characters
+# Link -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+
+'''
+Given a string s, find the length of the longest 
+substring without duplicate characters.
+'''
+
+# Solution:
+
+'''
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        ans = 0
+
+        for i in range(len(s)):
+            temp = ""
+
+            for j in range(i,len(s)):
+                if s[j] in temp:
+                    break
+                temp += s[j]
+            
+            if len(temp) > ans:
+                ans = len(temp)
+
+        return ans       
+'''
