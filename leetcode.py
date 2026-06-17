@@ -328,3 +328,35 @@ class Solution(object):
 
       return ans        
 '''
+
+# 49. Group Anagrams
+# Link -> https://leetcode.com/problems/group-anagrams/submissions/2036406169/
+
+'''
+Given an array of strings strs, group the anagrams together.
+You can return the answer in any order.
+
+'''
+
+# Solution:
+
+'''
+class Solution(object):
+    def groupAnagrams(self, strs):
+        d = {}
+
+        for word in strs:
+            key = "".join(sorted(word))
+
+            if key in d:
+                d[key].append(word)
+            else:
+                d[key] = [word]
+
+        ans = []
+
+        for value in d.values():
+            ans.append(value)
+
+        return ans       
+'''
