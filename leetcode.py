@@ -295,3 +295,36 @@ class Solution(object):
         return ans
         
 '''
+
+# 347. Top K frequented elements
+# Link -> https://leetcode.com/problems/top-k-frequent-elements/submissions/2036399348/
+
+'''
+Given an integer array nums and an integer k, return the k 
+most frequent elements. You may return the answer in any order.
+'''
+
+# Solution :
+
+'''
+class Solution(object):
+    def topKFrequent(self, nums, k):
+      d = {}
+
+      for i in nums:
+        if i in d:
+            d[i] += 1
+        else:
+                d[i] = 1
+        
+      Ist = sorted(d.items(), key=lambda x: x[1], reverse = True)
+
+      ans = []
+
+      for item in Ist:
+        ans.append(item[0])
+        if len(ans) ==k:
+            break
+
+      return ans        
+'''
