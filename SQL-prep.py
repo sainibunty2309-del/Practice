@@ -695,3 +695,24 @@ select customer_number from Orders
 group by customer_number
 order by count(*) desc limit 1;
 '''
+
+# 607. Sales Person 
+# Link -> https://leetcode.com/problems/sales-person/description/
+
+'''
+Write a solution to find the names of all the salespersons who 
+did not have any orders related to the company with the 
+name "RED".
+'''
+
+# Solution :
+
+'''
+select name from SalesPerson
+where sales_id not in (
+    select o.sales_id from Orders o
+    join Company c
+    On o.com_id = c.com_id
+    where c.name = 'red'
+)
+'''
