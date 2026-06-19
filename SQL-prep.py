@@ -677,3 +677,21 @@ where grp in (
     having count(*) >= 3
 )order by visit_date;
 '''
+
+# 586. Customer Placing the largest numbers of orders.
+# Link -> https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/description/
+
+''' 
+Write a solution to find the customer_number for the customer who
+has placed the largest number of orders.
+
+The test cases are generated so that exactly one customer will
+have placed more orders than any other customer.
+'''
+
+# Solution :
+'''
+select customer_number from Orders
+group by customer_number
+order by count(*) desc limit 1;
+'''
