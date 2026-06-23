@@ -745,3 +745,23 @@ group by id;
 
 
 '''
+
+# 1633. percentage of users Attended a Contest
+# Link -> https://leetcode.com/problems/percentage-of-users-attended-a-contest/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write a solution to find the percentage 
+of the users registered in each contest rounded to two decimals.
+'''
+
+# Solution :
+
+'''
+select contest_id, round(
+    count(distinct user_id)*100.0 /(select count(*) from users),2
+) as percentage
+from Register
+group by contest_id
+order by percentage desc, contest_id asc;
+
+'''
