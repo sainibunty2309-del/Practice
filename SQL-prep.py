@@ -787,3 +787,29 @@ SELECT
 FROM Queries
 GROUP BY query_name;
 '''
+
+# 1174. Immediate food delivery
+# Link ->https://leetcode.com/problems/immediate-food-delivery-ii/description/?envType=study-plan-v2&envId=top-sql-50
+
+'''
+Write a solution to find the percentage of immediate orders in 
+the first orders of all customers, rounded to 2 decimal places.
+'''
+
+# solution: 
+
+'''
+SELECT
+    ROUND(
+        100 * AVG(order_date = customer_pref_delivery_date),
+        2
+    ) AS immediate_percentage
+FROM Delivery
+WHERE (customer_id, order_date) IN (
+    SELECT
+        customer_id,
+        MIN(order_date)
+    FROM Delivery
+    GROUP BY customer_id
+);
+'''
