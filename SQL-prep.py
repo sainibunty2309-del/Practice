@@ -847,3 +847,6 @@ WHERE (a.player_id, a.event_date) IN (
     GROUP BY player_id
 );
 '''
+
+# 2356. Number of Unique Subjects taughr by teacher
+# Link -> https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/description/?envType=study-plan-v2&envId=top-sql-50
